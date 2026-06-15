@@ -38,7 +38,7 @@ button {
 
 .slack-shell {
   display: grid;
-  grid-template-columns: 76px 330px minmax(0, 1fr);
+  grid-template-columns: 68px 300px minmax(0, 1fr);
   height: 100vh;
   overflow: hidden;
   background: #ffffff;
@@ -48,8 +48,8 @@ button {
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 16px;
-  padding: 16px 12px;
+  gap: 12px;
+  padding: 12px 8px;
   overflow-y: auto;
   background: var(--rail);
   border-right: 1px solid #dedede;
@@ -57,20 +57,20 @@ button {
 
 .workspace-avatar {
   display: grid;
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   place-items: center;
   border-radius: 12px;
   background: #373438;
   color: #ffffff;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 900;
 }
 
 .rail-item {
   display: grid;
-  width: 56px;
-  min-height: 62px;
+  width: 52px;
+  min-height: 56px;
   place-items: center;
   gap: 5px;
   padding: 8px 4px;
@@ -87,8 +87,8 @@ button {
 
 .rail-icon {
   display: grid;
-  width: 28px;
-  height: 26px;
+  width: 24px;
+  height: 24px;
   place-items: center;
   color: #1d1c1d;
 }
@@ -112,8 +112,8 @@ button {
 }
 
 .rail-svg {
-  width: 23px;
-  height: 23px;
+  width: 21px;
+  height: 21px;
   stroke-width: 2;
 }
 
@@ -130,8 +130,8 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 72px;
-  padding: 0 16px 0 22px;
+  min-height: 58px;
+  padding: 0 12px 0 18px;
   border-bottom: 1px solid var(--sidebar-border);
 }
 
@@ -142,7 +142,7 @@ button {
   padding: 0;
   background: transparent;
   color: var(--text);
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 900;
 }
 
@@ -155,20 +155,20 @@ button {
 .workspace-tools {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 10px;
   color: #5d5d5d;
 }
 
 .workspace-tool {
   display: grid;
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   place-items: center;
 }
 
 .workspace-tool-icon {
-  width: 22px;
-  height: 22px;
+  width: 19px;
+  height: 19px;
   stroke-width: 1.9;
 }
 
@@ -176,16 +176,16 @@ button {
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: 8px;
-  padding: 18px 12px 28px;
+  gap: 6px;
+  padding: 14px 10px 24px;
   overflow-y: auto;
 }
 
 .sidebar-group {
   display: grid;
-  gap: 6px;
-  margin-top: 8px;
-  padding-top: 10px;
+  gap: 4px;
+  margin-top: 6px;
+  padding-top: 8px;
   border-top: 1px solid var(--sidebar-border);
 }
 
@@ -195,7 +195,7 @@ button {
   gap: 4px;
   padding: 0 8px;
   color: #6d6a6d;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 900;
 }
 
@@ -208,25 +208,25 @@ button {
 .sidebar-link {
   display: flex;
   align-items: center;
-  gap: 10px;
-  min-height: 36px;
-  padding: 0 10px;
+  gap: 8px;
+  min-height: 30px;
+  padding: 0 8px;
   border-radius: 8px;
   color: #69666a;
-  font-size: 19px;
+  font-size: 15px;
   line-height: 1;
   text-decoration: none;
 }
 
 .sidebar-link--muted {
-  min-height: 38px;
-  font-size: 20px;
+  min-height: 32px;
+  font-size: 16px;
 }
 
 .sidebar-icon {
-  width: 23px;
-  height: 23px;
-  flex: 0 0 23px;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
   color: currentColor;
   fill: none;
   stroke: currentColor;
@@ -248,30 +248,30 @@ button {
 }
 
 .app-link {
-  min-height: 46px;
+  min-height: 34px;
 }
 
 .app-link .stack-mark {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   border-radius: 5px;
 }
 
 .channel-link {
   color: #777477;
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .unread-count {
   display: grid;
-  min-width: 28px;
-  height: 28px;
+  min-width: 22px;
+  height: 22px;
   margin-left: auto;
   place-items: center;
   border-radius: 999px;
   background: var(--badge);
   color: #ffffff;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 900;
 }
 
@@ -302,27 +302,27 @@ button {
 .threads-header {
   display: flex;
   align-items: center;
-  min-height: 72px;
-  padding: 0 28px;
+  min-height: 58px;
+  padding: 0 22px;
   border-bottom: 1px solid var(--border);
 }
 
 .threads-header h1 {
   margin: 0;
   color: #1d1c1d;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 900;
 }
 
 .threads-body {
   min-height: 0;
   overflow-y: auto;
-  padding: 22px 28px 64px;
+  padding: 18px 22px 56px;
 }
 
 .threads-item {
-  max-width: 980px;
-  padding: 14px 12px 20px;
+  max-width: 900px;
+  padding: 10px 10px 16px;
   border-radius: 8px;
 }
 
@@ -335,9 +335,9 @@ button {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin: 0 0 12px 66px;
+  margin: 0 0 8px 50px;
   color: #6d6a6d;
-  font-size: 15px;
+  font-size: 13px;
 }
 
 .threads-item__meta button {
@@ -361,7 +361,7 @@ button {
 .channel-workspace {
   display: grid;
   min-width: 0;
-  grid-template-columns: minmax(0, 1fr) minmax(380px, 33vw);
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 32vw);
   overflow: hidden;
   background: #ffffff;
 }
@@ -391,8 +391,8 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 72px;
-  padding: 0 28px;
+  min-height: 58px;
+  padding: 0 22px;
   border-bottom: 1px solid var(--border);
 }
 
@@ -400,14 +400,14 @@ button {
 .thread-header h2 {
   margin: 0;
   color: #1d1c1d;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 900;
 }
 
 .thread-close {
   display: grid;
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   place-items: center;
   border-radius: 6px;
   background: transparent;
@@ -421,8 +421,8 @@ button {
 }
 
 .thread-close svg {
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
   fill: none;
   stroke: currentColor;
   stroke-linecap: round;
@@ -434,14 +434,14 @@ button {
   flex: 1;
   min-height: 0;
   overflow-y: auto;
-  padding: 18px 28px 22px;
+  padding: 14px 22px 20px;
 }
 
 .channel-date-line {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 0 18px;
+  margin: 0 0 14px;
   color: #6d6a6d;
   font-size: 13px;
 }
@@ -461,10 +461,10 @@ button {
 .channel-message {
   position: relative;
   display: grid;
-  grid-template-columns: 52px minmax(0, 1fr);
-  gap: 14px;
-  max-width: 980px;
-  padding: 10px 12px 14px;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 10px;
+  max-width: 860px;
+  padding: 8px 10px 12px;
   border-radius: 8px;
 }
 
@@ -474,8 +474,8 @@ button {
 }
 
 .channel-message > .stack-mark {
-  width: 48px;
-  height: 48px;
+  width: 38px;
+  height: 38px;
   margin-top: 2px;
 }
 
@@ -486,14 +486,14 @@ button {
 .company-chat {
   display: grid;
   gap: 4px;
-  max-width: 980px;
+  max-width: 860px;
 }
 
 .company-message {
   display: grid;
-  grid-template-columns: 52px minmax(0, 1fr);
-  gap: 14px;
-  padding: 8px 12px;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 10px;
+  padding: 6px 10px;
   border-radius: 8px;
 }
 
@@ -507,21 +507,21 @@ button {
 }
 
 .company-message p {
-  max-width: 860px;
-  margin: 6px 0 0;
+  max-width: 760px;
+  margin: 3px 0 0;
   color: #1d1c1d;
-  font-size: 21px;
-  line-height: 1.38;
+  font-size: 15px;
+  line-height: 1.42;
 }
 
 .user-avatar {
   display: grid;
-  width: 48px;
-  height: 48px;
+  width: 38px;
+  height: 38px;
   place-items: center;
   border-radius: 8px;
   color: #ffffff;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 900;
 }
 
@@ -542,11 +542,11 @@ button {
 }
 
 .channel-copy {
-  max-width: 860px;
-  margin-top: 6px;
+  max-width: 760px;
+  margin-top: 3px;
   color: #1d1c1d;
-  font-size: 21px;
-  line-height: 1.38;
+  font-size: 15px;
+  line-height: 1.42;
 }
 
 .block-kit-message--channel {
@@ -554,10 +554,10 @@ button {
 }
 
 .channel-forwarded-content {
-  max-width: 860px;
-  margin-top: 18px;
+  max-width: 760px;
+  margin-top: 14px;
   color: #1d1c1d;
-  font-size: 21px;
+  font-size: 15px;
   line-height: 1.42;
 }
 
@@ -566,7 +566,7 @@ button {
 }
 
 .channel-forwarded-content p + p {
-  margin-top: 18px;
+  margin-top: 12px;
 }
 
 .channel-forwarded-content strong {
@@ -574,17 +574,17 @@ button {
 }
 
 .sources-dropdown {
-  max-width: 860px;
-  margin-top: 22px;
+  max-width: 760px;
+  margin-top: 16px;
 }
 
 .sources-dropdown summary {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   color: #1d1c1d;
   cursor: pointer;
-  font-size: 22px;
+  font-size: 16px;
   font-weight: 900;
   list-style: none;
 }
@@ -595,8 +595,8 @@ button {
 
 .sources-toggle {
   display: grid;
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   place-items: center;
   border: 1px solid #9a999a;
   border-radius: 7px;
@@ -605,8 +605,8 @@ button {
 }
 
 .sources-toggle svg {
-  width: 18px;
-  height: 18px;
+  width: 15px;
+  height: 15px;
   transition: transform 120ms ease;
 }
 
@@ -619,7 +619,7 @@ button {
   gap: 0;
   max-width: 620px;
   max-height: 292px;
-  margin: 10px 0 0 48px;
+  margin: 8px 0 0 40px;
   border: 1px solid #d8d8d8;
   border-radius: 8px;
   background: #ffffff;
@@ -652,9 +652,9 @@ button {
 }
 
 .answered-in-thread {
-  margin: 24px 0 0;
+  margin: 18px 0 0;
   color: var(--green);
-  font-size: 21px;
+  font-size: 15px;
   font-weight: 900;
   line-height: 1.3;
 }
@@ -684,9 +684,9 @@ button {
 }
 
 .thread-summary--channel {
-  gap: 10px;
-  margin-top: 26px;
-  font-size: 20px;
+  gap: 8px;
+  margin-top: 18px;
+  font-size: 14px;
   line-height: 1.2;
 }
 
@@ -713,12 +713,12 @@ button {
 }
 
 .thread-summary--channel .thread-avatar {
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
   border-radius: 7px;
   background: #f3a15d;
   color: #ffffff;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .message-hover-actions {
@@ -727,15 +727,15 @@ button {
   right: 14px;
   display: flex;
   align-items: center;
-  gap: 12px;
-  min-height: 42px;
-  padding: 0 12px;
+  gap: 9px;
+  min-height: 34px;
+  padding: 0 9px;
   border: 1px solid #dedede;
   border-radius: 8px;
   background: #ffffff;
   box-shadow: 0 4px 14px rgb(0 0 0 / 12%);
   color: #5f5d60;
-  font-size: 18px;
+  font-size: 15px;
   opacity: 0;
   pointer-events: none;
   transform: translateY(4px);
@@ -752,26 +752,26 @@ button {
 }
 
 .message-hover-actions .stack-mark {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   border-radius: 6px;
 }
 
 .hover-reaction,
 .hover-control {
   display: grid;
-  width: 26px;
-  height: 26px;
+  width: 22px;
+  height: 22px;
   place-items: center;
 }
 
 .hover-reaction {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .hover-icon {
-  width: 20px;
-  height: 20px;
+  width: 17px;
+  height: 17px;
   stroke-width: 1.9;
 }
 
@@ -787,19 +787,19 @@ button {
   flex: 1;
   min-height: 0;
   overflow-y: auto;
-  padding: 28px;
+  padding: 22px;
 }
 
 .thread-parent,
 .thread-reply {
   display: grid;
-  grid-template-columns: 52px minmax(0, 1fr);
-  gap: 14px;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 10px;
 }
 
 .thread-parent > .stack-mark {
-  width: 48px;
-  height: 48px;
+  width: 38px;
+  height: 38px;
 }
 
 .thread-message-content {
@@ -808,10 +808,10 @@ button {
 
 .thread-message-content p,
 .thread-answer {
-  margin: 6px 0 0;
+  margin: 3px 0 0;
   color: #1d1c1d;
-  font-size: 20px;
-  line-height: 1.4;
+  font-size: 15px;
+  line-height: 1.42;
 }
 
 .thread-answer {
@@ -819,31 +819,31 @@ button {
 }
 
 .thread-question {
-  margin-top: 16px;
-  font-size: 20px;
+  margin-top: 12px;
+  font-size: 15px;
   line-height: 1.35;
 }
 
 .thread-divider {
   height: 1px;
-  margin: 24px 0;
+  margin: 18px 0;
   background: #dddddd;
 }
 
 .drew-avatar {
   display: grid;
-  width: 48px;
-  height: 48px;
+  width: 38px;
+  height: 38px;
   place-items: center;
   border-radius: 8px;
   background: #f3a15d;
   color: #ffffff;
-  font-size: 22px;
+  font-size: 17px;
   font-weight: 900;
 }
 
 .composer {
-  margin: 0 28px 20px;
+  margin: 0 22px 16px;
   border: 1px solid #d7d7d7;
   border-radius: 8px;
   background: #ffffff;
@@ -860,23 +860,23 @@ button {
   display: flex;
   align-items: center;
   gap: 4px;
-  min-height: 48px;
-  padding: 0 14px;
+  min-height: 36px;
+  padding: 0 10px;
   background: #f7f7f7;
   color: #6d6a6d;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 800;
 }
 
 .format-control {
   position: relative;
   display: inline-grid;
-  width: 32px;
-  height: 32px;
+  width: 26px;
+  height: 26px;
   place-items: center;
   border-radius: 4px;
   color: #6d6a6d;
-  font-size: 20px;
+  font-size: 15px;
   line-height: 1;
 }
 
@@ -906,8 +906,8 @@ button {
 }
 
 .format-control svg {
-  width: 21px;
-  height: 21px;
+  width: 17px;
+  height: 17px;
   fill: none;
   stroke: currentColor;
   stroke-linecap: round;
@@ -920,51 +920,51 @@ button {
 }
 
 .format-control--code svg {
-  width: 23px;
-  height: 23px;
+  width: 18px;
+  height: 18px;
 }
 
 .composer-input {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 64px;
-  padding: 0 20px;
+  min-height: 48px;
+  padding: 0 14px;
   color: #8f8d91;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 .composer-send {
   display: grid;
-  width: 34px;
-  height: 34px;
+  width: 28px;
+  height: 28px;
   place-items: center;
   color: #b5b5b5;
 }
 
 .composer-send-icon {
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
   stroke-width: 1.8;
 }
 
 .composer-footer {
   justify-content: flex-start;
-  min-height: 42px;
+  min-height: 34px;
   background: #ffffff;
 }
 
 .composer-footer-control {
   display: grid;
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   place-items: center;
   color: #6d6a6d;
 }
 
 .composer-footer-icon {
-  width: 20px;
-  height: 20px;
+  width: 17px;
+  height: 17px;
   stroke-width: 1.9;
 }
 
@@ -972,8 +972,8 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 72px;
-  padding: 0 28px;
+  min-height: 58px;
+  padding: 0 22px;
   border-bottom: 1px solid var(--border);
 }
 
@@ -981,14 +981,14 @@ button {
   display: flex;
   align-items: center;
   min-width: 0;
-  gap: 14px;
+  gap: 10px;
 }
 
 .app-title h1 {
   margin: 0;
   overflow: hidden;
   color: var(--text);
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 900;
   line-height: 1.1;
   text-overflow: ellipsis;
@@ -997,22 +997,22 @@ button {
 
 .star {
   display: grid;
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   place-items: center;
   color: #6b686b;
 }
 
 .star-icon {
-  width: 23px;
-  height: 23px;
+  width: 19px;
+  height: 19px;
   stroke-width: 1.8;
 }
 
 .app-actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 10px;
 }
 
 .new-chat-button {
@@ -1020,18 +1020,18 @@ button {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: 42px;
-  padding: 0 18px;
+  min-height: 34px;
+  padding: 0 14px;
   border-radius: 7px;
   background: var(--green);
   color: #ffffff;
-  font-size: 19px;
+  font-size: 15px;
   font-weight: 900;
 }
 
 .button-icon {
-  width: 20px;
-  height: 20px;
+  width: 17px;
+  height: 17px;
   stroke-width: 2;
 }
 
@@ -1043,16 +1043,16 @@ button {
 
 .icon-action {
   display: grid;
-  width: 28px;
-  height: 36px;
+  width: 24px;
+  height: 32px;
   place-items: center;
   background: transparent;
   color: #5f5d60;
 }
 
 .app-action-icon {
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
   stroke-width: 1.9;
 }
 
@@ -1060,18 +1060,18 @@ button {
   display: flex;
   align-items: flex-end;
   gap: 8px;
-  min-height: 54px;
-  padding: 0 24px;
+  min-height: 44px;
+  padding: 0 18px;
   border-bottom: 1px solid var(--border);
 }
 
 .tab-button {
-  min-height: 54px;
-  padding: 0 18px;
+  min-height: 44px;
+  padding: 0 14px;
   border-bottom: 3px solid transparent;
   background: transparent;
   color: #6f6c70;
-  font-size: 19px;
+  font-size: 15px;
   font-weight: 500;
 }
 
@@ -1093,21 +1093,21 @@ button {
 
 .answer-list {
   display: grid;
-  gap: 26px;
-  max-width: 1250px;
-  padding: 12px 28px 64px;
+  gap: 20px;
+  max-width: 1080px;
+  padding: 12px 22px 56px;
 }
 
 .answer-message {
   display: grid;
-  grid-template-columns: 52px minmax(0, 1fr);
-  gap: 14px;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 10px;
   align-items: start;
 }
 
 .answer-message > .stack-mark {
-  width: 48px;
-  height: 48px;
+  width: 38px;
+  height: 38px;
   margin-top: 2px;
   border-radius: 8px;
 }
@@ -1119,14 +1119,14 @@ button {
 .message-meta {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   color: #6d6a6d;
-  font-size: 16px;
+  font-size: 13px;
 }
 
 .message-author {
   color: #1d1c1d;
-  font-size: 22px;
+  font-size: 16px;
   font-weight: 900;
   line-height: 1.15;
 }
@@ -1134,12 +1134,12 @@ button {
 .app-badge {
   display: inline-flex;
   align-items: center;
-  min-height: 24px;
-  padding: 0 7px;
+  min-height: 18px;
+  padding: 0 5px;
   border-radius: 5px;
   background: #e6e6e6;
   color: #5f5d60;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 900;
 }
 
@@ -1150,18 +1150,18 @@ button {
 }
 
 .bk-header {
-  max-width: 1180px;
+  max-width: 960px;
   color: #1d1c1d;
-  font-size: 21px;
+  font-size: 15px;
   font-weight: 900;
   line-height: 1.3;
 }
 
 .bk-section {
-  max-width: 1180px;
+  max-width: 960px;
   color: #1d1c1d;
-  font-size: 21px;
-  line-height: 1.45;
+  font-size: 15px;
+  line-height: 1.42;
 }
 
 .bk-section strong {
@@ -1169,13 +1169,13 @@ button {
 }
 
 .bk-section[data-style='question'] {
-  margin-top: 12px;
-  font-size: 22px;
+  margin-top: 10px;
+  font-size: 15px;
   line-height: 1.35;
 }
 
 .bk-section[data-style='intro'] {
-  font-size: 21px;
+  font-size: 15px;
 }
 
 .bk-section[data-style='answer'],
@@ -1185,8 +1185,8 @@ button {
 
 .bk-section[data-style='quote'] {
   position: relative;
-  max-width: 1080px;
-  padding-left: 16px;
+  max-width: 900px;
+  padding-left: 12px;
   color: #454245;
   line-height: 1.38;
 }
@@ -1212,7 +1212,7 @@ button {
   gap: 8px;
   margin-top: 4px;
   color: #6d6a6d;
-  font-size: 16px;
+  font-size: 13px;
   line-height: 1.35;
 }
 
@@ -1231,8 +1231,8 @@ button {
 }
 
 .stack-mark {
-  width: 38px;
-  height: 38px;
+  width: 32px;
+  height: 32px;
   flex: 0 0 auto;
   border-radius: 8px;
   display: block;
@@ -1241,29 +1241,29 @@ button {
 
 .chat-empty {
   display: grid;
-  max-width: 540px;
+  max-width: 460px;
   gap: 12px;
-  margin: 96px auto 0;
+  margin: 76px auto 0;
   justify-items: center;
-  padding: 32px;
+  padding: 24px;
   text-align: center;
 }
 
 .chat-empty h2 {
   margin: 6px 0 0;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .chat-empty p {
   margin: 0 0 8px;
   color: var(--muted);
-  font-size: 17px;
+  font-size: 14px;
   line-height: 1.45;
 }
 
 @media (max-width: 1120px) {
   .slack-shell {
-    grid-template-columns: 72px 288px minmax(0, 1fr);
+    grid-template-columns: 68px 280px minmax(0, 1fr);
   }
 
   .app-actions {
@@ -1271,18 +1271,18 @@ button {
   }
 
   .new-chat-button {
-    min-height: 38px;
+    min-height: 34px;
     padding: 0 14px;
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .bk-section,
   .bk-section[data-style='intro'] {
-    font-size: 18px;
+    font-size: 15px;
   }
 
   .bk-section[data-style='question'] {
-    font-size: 20px;
+    font-size: 15px;
   }
 }
 
@@ -1326,7 +1326,7 @@ button {
   }
 
   .message-author {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .message-meta {
