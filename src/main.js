@@ -10,6 +10,15 @@ const questionTitle = 'Should we resolve the service mesh timeout issue by incre
 const aiSuggestedAnswer =
   'Increasing retries can help with short transient failures, but it should not be the only fix. The safer approach is to validate timeout budgets, add circuit breaker limits, and only raise retries after confirming the upstream service can absorb the extra load.';
 
+const correctQuestionIntro =
+  'I need a review on this rollout plan before I share it with the incident response group. Does this look like the right sequence?';
+
+const correctQuestionTitle =
+  'What is the recommended plan for migrating the Cloud Infra alert pipeline without missing critical pages?';
+
+const correctSuggestedAnswer =
+  'Use a staged migration: freeze alert rule edits before the window, export the current PagerDuty routing rules and service ownership map, run the new pipeline in shadow mode, compare events for at least two business days, and only cut over after confirming parity with the incident response leads.';
+
 const sources = [
   { title: 'Cloud Infra service mesh retry guidance', meta: 'Google Docs' },
   { title: '#infra thread: service mesh timeout budget', meta: 'Slack' },
@@ -106,6 +115,24 @@ const answerItems = [
       },
     ],
   },
+  {
+    id: 'cloud-infra-alert-pipeline-correct',
+    time: '10:44 AM',
+    blocks: [
+      {
+        type: 'section',
+        style: 'quote',
+        text: {
+          type: 'mrkdwn',
+          text: `${correctQuestionIntro}\n\n*${correctQuestionTitle}*\n\n${correctSuggestedAnswer}`,
+        },
+      },
+      {
+        type: 'status',
+        text: 'user marked this answer as correct',
+      },
+    ],
+  },
 ];
 
 const escapeHtml = (value) =>
@@ -185,6 +212,19 @@ const renderBlock = (block) => {
     return `<div class="bk-block bk-context">${block.elements
       .map((element) => `<span>${renderBlockText(element)}</span>`)
       .join('')}</div>`;
+  }
+
+  if (block.type === 'status') {
+    return `
+      <div class="bk-block bk-status">
+        <span class="bk-status__icon" aria-hidden="true">
+          <svg viewBox="0 0 16 16">
+            <path d="M3.25 8.25 6.5 11.5l6.25-7"></path>
+          </svg>
+        </span>
+        <span>${escapeHtml(block.text)}</span>
+      </div>
+    `;
   }
 
   return '';

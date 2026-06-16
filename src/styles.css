@@ -1206,6 +1206,42 @@ button {
   margin-top: 6px;
 }
 
+.bk-section[data-style='quote'] + .bk-status {
+  margin-top: 8px;
+}
+
+.bk-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  color: var(--green);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.bk-status__icon {
+  display: inline-grid;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--green);
+  color: #ffffff;
+}
+
+.bk-status__icon svg {
+  width: 12px;
+  height: 12px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.2;
+}
+
 .bk-context {
   display: flex;
   flex-wrap: wrap;
