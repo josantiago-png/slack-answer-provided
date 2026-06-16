@@ -104,7 +104,7 @@ const answerItems = [
         style: 'body',
         text: {
           type: 'mrkdwn',
-          text: `From <@Alex Chen>: ${questionIntro}`,
+          text: `By you: ${questionIntro}`,
         },
       },
       {
@@ -129,7 +129,7 @@ const answerItems = [
       },
       {
         type: 'answered',
-        text: 'answered by drew',
+        text: 'Answered by Drew',
       },
       {
         type: 'replySummary',
@@ -148,7 +148,7 @@ const answerItems = [
         style: 'body',
         text: {
           type: 'mrkdwn',
-          text: `From <@Marco Lin>: ${correctQuestionIntro}`,
+          text: `By you: ${correctQuestionIntro}`,
         },
       },
       {
@@ -169,7 +169,7 @@ const answerItems = [
       },
       {
         type: 'status',
-        text: 'user marked this answer as correct',
+        text: 'User marked this answer as correct',
       },
     ],
   },
@@ -264,7 +264,7 @@ const renderBlock = (block) => {
 
   if (block.type === 'replySummary') {
     return `
-      <button class="thread-summary thread-summary--answer" type="button" data-open-answer-thread="${escapeHtml(block.channel)}">
+      <button class="thread-summary thread-summary--answer" type="button" data-open-answer-thread>
         <span class="thread-summary-stack" aria-hidden="true">${renderStackMark()}</span>
         <span>${escapeHtml(block.label)}</span>
         <span>${escapeHtml(block.time)}</span>
@@ -483,8 +483,44 @@ const renderChannelContent = (channel) => {
   return renderPlaceholderChannel(channel);
 };
 
-const renderThreadPanel = () => `
-  <aside class="thread-panel" aria-label="Thread">
+const renderAppThreadParent = () => `
+  <article class="thread-parent thread-parent--app">
+    ${renderStackMark()}
+    <div class="thread-message-content">
+      <div class="message-meta">
+        <span class="message-author">Stack Internal</span>
+        <span class="app-badge">APP</span>
+        <span>${answerItems[0].time}</span>
+      </div>
+      <div class="block-kit-message" aria-label="Stack Internal answer thread parent">
+        ${answerItems[0].blocks
+          .filter((block) => block.type !== 'replySummary')
+          .map(renderBlock)
+          .join('')}
+      </div>
+    </div>
+  </article>
+`;
+
+const renderChannelThreadParent = () => `
+  <article class="thread-parent">
+    ${renderStackMark()}
+    <div class="thread-message-content">
+      <div class="message-meta">
+        <span class="message-author">Stack Internal</span>
+        <span class="app-badge">APP</span>
+        <span>10:12 AM</span>
+      </div>
+      <p>This question from <span class="mention">@Alex Chen</span> was forwarded for anyone in this channel to answer.</p>
+      <div class="thread-question">
+        <strong>${escapeHtml(questionTitle)}</strong>
+      </div>
+    </div>
+  </article>
+`;
+
+const renderThreadPanel = ({ appThread = false } = {}) => `
+  <aside class="thread-panel ${appThread ? 'app-thread-panel' : ''}" aria-label="Thread">
     <header class="thread-header">
       <h2>Thread</h2>
       <button class="thread-close" type="button" aria-label="Close thread">
@@ -494,20 +530,7 @@ const renderThreadPanel = () => `
       </button>
     </header>
     <div class="thread-body">
-      <article class="thread-parent">
-        ${renderStackMark()}
-        <div class="thread-message-content">
-          <div class="message-meta">
-            <span class="message-author">Stack Internal</span>
-            <span class="app-badge">APP</span>
-            <span>10:12 AM</span>
-          </div>
-          <p>This question from <span class="mention">@Alex Chen</span> was forwarded for anyone in this channel to answer.</p>
-          <div class="thread-question">
-            <strong>${escapeHtml(questionTitle)}</strong>
-          </div>
-        </div>
-      </article>
+      ${appThread ? renderAppThreadParent() : renderChannelThreadParent()}
       <div class="thread-divider"></div>
       <article class="thread-reply">
         <div class="drew-avatar" aria-hidden="true">☺</div>
@@ -635,46 +658,49 @@ app.innerHTML = `
       </nav>
     </aside>
 
-    <section class="app-view is-hidden" data-surface="app" aria-label="Stack Internal app">
-      <header class="app-header">
-        <div class="app-title">
-          <span class="star" aria-hidden="true">${renderIcon('star', 'star-icon')}</span>
-          ${renderStackMark()}
-          <h1>Stack Internal</h1>
-        </div>
-        <div class="app-actions">
-          <button class="new-chat-button" type="button">
-            <span aria-hidden="true">${renderIcon('newChat', 'button-icon')}</span>
-            New Chat
-          </button>
-          <button class="icon-action" type="button" aria-label="Search">${renderIcon('search', 'app-action-icon')}</button>
-          <button class="icon-action" type="button" aria-label="Notifications">${renderIcon('bell', 'app-action-icon')}</button>
-          <button class="icon-action" type="button" aria-label="More">${renderIcon('moreVertical', 'app-action-icon')}</button>
-        </div>
-      </header>
+    <section class="app-view is-hidden is-app-thread-closed" data-surface="app" aria-label="Stack Internal app">
+      <section class="app-main" aria-label="Stack Internal app content">
+        <header class="app-header">
+          <div class="app-title">
+            <span class="star" aria-hidden="true">${renderIcon('star', 'star-icon')}</span>
+            ${renderStackMark()}
+            <h1>Stack Internal</h1>
+          </div>
+          <div class="app-actions">
+            <button class="new-chat-button" type="button">
+              <span aria-hidden="true">${renderIcon('newChat', 'button-icon')}</span>
+              New Chat
+            </button>
+            <button class="icon-action" type="button" aria-label="Search">${renderIcon('search', 'app-action-icon')}</button>
+            <button class="icon-action" type="button" aria-label="Notifications">${renderIcon('bell', 'app-action-icon')}</button>
+            <button class="icon-action" type="button" aria-label="More">${renderIcon('moreVertical', 'app-action-icon')}</button>
+          </div>
+        </header>
 
-      <nav class="app-tabs" aria-label="Stack Internal tabs">
-        <button class="tab-button is-active" type="button" data-tab="answers">Answers</button>
-        <button class="tab-button" type="button" data-tab="chat">Chat</button>
-      </nav>
+        <nav class="app-tabs" aria-label="Stack Internal tabs">
+          <button class="tab-button is-active" type="button" data-tab="answers">Answers</button>
+          <button class="tab-button" type="button" data-tab="chat">Chat</button>
+        </nav>
 
-      <section class="tab-panel is-active" data-panel="answers" aria-label="Provided answers">
-        <div class="answer-list">
-          ${answerItems.map(renderAnswerItem).join('')}
-        </div>
+        <section class="tab-panel is-active" data-panel="answers" aria-label="Provided answers">
+          <div class="answer-list">
+            ${answerItems.map(renderAnswerItem).join('')}
+          </div>
+        </section>
+
+        <section class="tab-panel" data-panel="chat" aria-label="Chat with Stack Internal">
+          <div class="chat-empty">
+            ${renderStackMark()}
+            <h2>Start a chat with Stack Internal</h2>
+            <p>Ask a question or paste a thread to search trusted company context.</p>
+            <button class="new-chat-button" type="button">
+              <span aria-hidden="true">${renderIcon('newChat', 'button-icon')}</span>
+              New Chat
+            </button>
+          </div>
+        </section>
       </section>
-
-      <section class="tab-panel" data-panel="chat" aria-label="Chat with Stack Internal">
-        <div class="chat-empty">
-          ${renderStackMark()}
-          <h2>Start a chat with Stack Internal</h2>
-          <p>Ask a question or paste a thread to search trusted company context.</p>
-          <button class="new-chat-button" type="button">
-            <span aria-hidden="true">${renderIcon('newChat', 'button-icon')}</span>
-            New Chat
-          </button>
-        </div>
-      </section>
+      ${renderThreadPanel({ appThread: true })}
     </section>
 
     <section class="channel-workspace is-thread-closed" data-surface="channel" data-current-channel="general" aria-label="Channel">
@@ -779,6 +805,12 @@ document.querySelectorAll('[data-open-channel-thread]').forEach((button) => {
 
 document.querySelectorAll('.thread-close').forEach((button) => {
   button.addEventListener('click', () => {
+    const appView = button.closest('.app-view');
+    if (appView) {
+      appView.classList.add('is-app-thread-closed');
+      return;
+    }
+
     document.querySelector('.channel-workspace')?.classList.add('is-thread-closed');
   });
 });
@@ -790,8 +822,7 @@ document.addEventListener('click', (event) => {
 
   const answerThreadButton = event.target.closest('[data-open-answer-thread]');
   if (answerThreadButton) {
-    setSurface('channel');
-    setChannel(answerThreadButton.dataset.openAnswerThread, { openThread: true });
+    document.querySelector('.app-view')?.classList.remove('is-app-thread-closed');
   }
 });
 

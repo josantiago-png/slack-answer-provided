@@ -284,11 +284,32 @@ button {
 }
 
 .app-view {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 32vw);
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.app-view.is-app-thread-closed {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.app-view.is-app-thread-closed .app-thread-panel {
+  display: none;
+}
+
+.app-main {
   display: flex;
   min-width: 0;
   flex-direction: column;
   overflow: hidden;
   background: #ffffff;
+  border-right: 1px solid var(--border);
+}
+
+.app-view.is-app-thread-closed .app-main {
+  border-right: 0;
 }
 
 .threads-view {
@@ -1083,6 +1104,7 @@ button {
 
 .tab-panel {
   display: none;
+  flex: 1;
   min-height: 0;
   overflow-y: auto;
 }
