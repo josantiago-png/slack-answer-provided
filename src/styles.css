@@ -1206,8 +1206,47 @@ button {
   margin-top: 6px;
 }
 
-.bk-section[data-style='quote'] + .bk-status {
+.bk-section + .bk-status {
   margin-top: 8px;
+}
+
+.bk-answered {
+  width: fit-content;
+  margin-top: 8px;
+  color: var(--green);
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.thread-summary--answer {
+  gap: 8px;
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.thread-summary--answer span:nth-child(2) {
+  color: var(--blue);
+  font-weight: 900;
+}
+
+.thread-summary--answer span:nth-child(3) {
+  color: #6d6a6d;
+  font-weight: 400;
+}
+
+.thread-summary-stack {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+}
+
+.thread-summary-stack .stack-mark {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
 }
 
 .bk-status {

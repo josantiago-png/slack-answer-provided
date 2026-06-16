@@ -32,6 +32,8 @@ const sources = [
   { title: 'Cloud Infra weekly capacity notes', meta: 'Slack' },
 ];
 
+const answerSources = sources.slice(0, 6);
+
 const channels = [
   'announcements',
   'general',
@@ -99,19 +101,41 @@ const answerItems = [
     blocks: [
       {
         type: 'section',
-        style: 'quote',
+        style: 'body',
         text: {
           type: 'mrkdwn',
-          text: `${questionIntro}\n\n*${questionTitle}*\n\n${aiSuggestedAnswer}`,
+          text: `From <@Alex Chen>: ${questionIntro}`,
         },
       },
       {
         type: 'section',
-        style: 'answer',
+        style: 'question',
         text: {
           type: 'mrkdwn',
-          text: `<@drew> answered: ${drewAnswer}`,
+          text: `*${questionTitle}*`,
         },
+      },
+      {
+        type: 'section',
+        style: 'body',
+        text: {
+          type: 'mrkdwn',
+          text: aiSuggestedAnswer,
+        },
+      },
+      {
+        type: 'sources',
+        sourceList: answerSources,
+      },
+      {
+        type: 'answered',
+        text: 'answered by drew',
+      },
+      {
+        type: 'replySummary',
+        channel: 'infra',
+        label: '1 reply',
+        time: 'Today at 9:37 AM',
       },
     ],
   },
@@ -121,10 +145,26 @@ const answerItems = [
     blocks: [
       {
         type: 'section',
-        style: 'quote',
+        style: 'body',
         text: {
           type: 'mrkdwn',
-          text: `${correctQuestionIntro}\n\n*${correctQuestionTitle}*\n\n${correctSuggestedAnswer}`,
+          text: `From <@Marco Lin>: ${correctQuestionIntro}`,
+        },
+      },
+      {
+        type: 'section',
+        style: 'question',
+        text: {
+          type: 'mrkdwn',
+          text: `*${correctQuestionTitle}*`,
+        },
+      },
+      {
+        type: 'section',
+        style: 'body',
+        text: {
+          type: 'mrkdwn',
+          text: correctSuggestedAnswer,
         },
       },
       {
@@ -212,6 +252,24 @@ const renderBlock = (block) => {
     return `<div class="bk-block bk-context">${block.elements
       .map((element) => `<span>${renderBlockText(element)}</span>`)
       .join('')}</div>`;
+  }
+
+  if (block.type === 'sources') {
+    return renderSourcesDropdown(block.sourceList || sources);
+  }
+
+  if (block.type === 'answered') {
+    return `<div class="bk-block bk-answered">${escapeHtml(block.text)}</div>`;
+  }
+
+  if (block.type === 'replySummary') {
+    return `
+      <button class="thread-summary thread-summary--answer" type="button" data-open-answer-thread="${escapeHtml(block.channel)}">
+        <span class="thread-summary-stack" aria-hidden="true">${renderStackMark()}</span>
+        <span>${escapeHtml(block.label)}</span>
+        <span>${escapeHtml(block.time)}</span>
+      </button>
+    `;
   }
 
   if (block.type === 'status') {
@@ -306,7 +364,7 @@ const renderComposer = (placeholder) => `
   </footer>
 `;
 
-const renderSourcesDropdown = () => `
+const renderSourcesDropdown = (sourceList = sources) => `
   <details class="sources-dropdown">
     <summary>
       <span class="sources-toggle" aria-hidden="true">
@@ -314,10 +372,10 @@ const renderSourcesDropdown = () => `
           <path d="M4.2 6.2 8 10l3.8-3.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
         </svg>
       </span>
-      <span>${sources.length} sources</span>
+      <span>${sourceList.length} sources</span>
     </summary>
     <div class="sources-list">
-      ${sources
+      ${sourceList
         .map(
           (source) => `
             <div class="source-row">
@@ -341,7 +399,7 @@ const renderInfraMessage = () => `
         <span>10:12 AM</span>
       </div>
       <div class="channel-copy">
-        This question from <span class="mention">@Marco Lin</span> was forwarded for anyone in this channel to answer.
+        This question from <span class="mention">@Alex Chen</span> was forwarded for anyone in this channel to answer.
       </div>
       <div class="channel-forwarded-content" aria-label="Forwarded question">
         <p>${escapeHtml(questionIntro)}</p>
@@ -444,7 +502,7 @@ const renderThreadPanel = () => `
             <span class="app-badge">APP</span>
             <span>10:12 AM</span>
           </div>
-          <p>This question from <span class="mention">@Marco Lin</span> was forwarded for anyone in this channel to answer.</p>
+          <p>This question from <span class="mention">@Alex Chen</span> was forwarded for anyone in this channel to answer.</p>
           <div class="thread-question">
             <strong>${escapeHtml(questionTitle)}</strong>
           </div>
@@ -486,7 +544,7 @@ const renderThreadsView = () => `
                 <span class="app-badge">APP</span>
                 <span>10:12 AM</span>
               </div>
-              <p>This question from <span class="mention">@Marco Lin</span> was forwarded for anyone in this channel to answer.</p>
+              <p>This question from <span class="mention">@Alex Chen</span> was forwarded for anyone in this channel to answer.</p>
               <div class="thread-question">
                 <strong>${escapeHtml(questionTitle)}</strong>
               </div>
@@ -728,6 +786,12 @@ document.querySelectorAll('.thread-close').forEach((button) => {
 document.addEventListener('click', (event) => {
   if (event.target.closest('[data-open-thread]')) {
     document.querySelector('.channel-workspace')?.classList.remove('is-thread-closed');
+  }
+
+  const answerThreadButton = event.target.closest('[data-open-answer-thread]');
+  if (answerThreadButton) {
+    setSurface('channel');
+    setChannel(answerThreadButton.dataset.openAnswerThread, { openThread: true });
   }
 });
 
